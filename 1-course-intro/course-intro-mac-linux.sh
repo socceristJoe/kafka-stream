@@ -4,7 +4,7 @@
 # extract kafka in a folder
 
 ### LINUX / MAC OS X ONLY
-
+cd /Users/joeqiao/Documents/LocalHub/kafka/kafka_2.13-2.8.1
 # open a shell - zookeeper is at localhost:2181
 bin/zookeeper-server-start.sh config/zookeeper.properties
 

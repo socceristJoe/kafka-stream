@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /Users/joeqiao/Documents/LocalHub/kafka/kafka_2.13-2.8.1
 
 # create input topic with two partitions
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 2 --topic word-count-input
@@ -29,3 +30,21 @@ java -jar <your jar here>.jar
 
 # list all topics that we have in Kafka (so we can observe the internal topics)
 bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+    --topic wordcount-application-Counts-changelog \
+    --from-beginning \
+    --formatter kafka.tools.DefaultMessageFormatter \
+    --property print.key=true \
+    --property print.value=true \
+    --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+    --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+    --topic wordcount-application-Counts-repartition \
+    --from-beginning \
+    --formatter kafka.tools.DefaultMessageFormatter \
+    --property print.key=true \
+    --property print.value=true \
+    --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+    --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
