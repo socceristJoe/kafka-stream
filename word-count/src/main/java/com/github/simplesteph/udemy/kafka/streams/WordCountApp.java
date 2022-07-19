@@ -1,8 +1,5 @@
 package com.github.simplesteph.udemy.kafka.streams;
 
-import java.util.Properties;
-import java.util.Arrays;
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -13,6 +10,9 @@ import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Produced;
+
+import java.util.Arrays;
+import java.util.Properties;
 
 public class WordCountApp {
 

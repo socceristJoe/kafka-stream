@@ -19,3 +19,8 @@ Happy learning!
  - Favourite Colour for a more advanced example (`Scala` version included)
  - Bank Balance to demonstrate exactly once semantics
  - User Event matcher to learn about joins between `KStream` and `GlobalKTable`.
+
+## Run local kafka
+```sh
+docker run -p 2181:2181 -p 9092:9092 --name kafka-docker-container --env ADVERTISED_HOST=127.0.0.1 --env ADVERTISED_PORT=9092 spotify/kafka
+```
