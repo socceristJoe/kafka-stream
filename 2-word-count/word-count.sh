@@ -23,10 +23,11 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic word-count-input
 
 # package your application as a fat jar
+cd /Users/joeqiao/Documents/LocalHub/kafka/kafka-stream/word-count
 mvn clean package
 
 # run your fat jar
-java -jar <your jar here>.jar
+java -jar /Users/joeqiao/Documents/LocalHub/kafka/kafka-stream/word-count/target/word-count-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 # list all topics that we have in Kafka (so we can observe the internal topics)
 bin/kafka-topics.sh --list --zookeeper localhost:2181
