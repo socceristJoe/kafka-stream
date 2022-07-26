@@ -1,7 +1,9 @@
 #!/bin/bash
 
+cd /Users/joeqiao/Documents/LocalHub/kafka/kafka_2.13-2.8.1
+
 # create input topic with one partition to get full ordering
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic favourite-colour-input
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic favourite-colour-input-2
 
 # create intermediary log compacted topic
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic user-keys-and-colours --config cleanup.policy=compact
@@ -23,7 +25,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
 # launch the streams application
 
 # then produce data to it
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic favourite-colour-input
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic favourite-colour-input-2
 #
 stephane,blue
 john,green
@@ -33,3 +35,7 @@ alice,red
 
 # list all topics that we have in Kafka (so we can observe the internal topics)
 bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+    --topic user-keys-and-colours \
+    --from-beginning

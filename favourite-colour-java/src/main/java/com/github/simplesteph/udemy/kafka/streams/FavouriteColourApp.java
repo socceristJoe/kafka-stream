@@ -32,7 +32,7 @@ public class FavouriteColourApp {
 
         StreamsBuilder builder = new StreamsBuilder();
         // Step 1: We create the topic of users keys to colours
-        KStream<String, String> textLines = builder.stream("favourite-colour-input");
+        KStream<String, String> textLines = builder.stream("favourite-colour-input-2");
 
         KStream<String, String> usersAndColours = textLines
                 // 1 - we ensure that a comma is here as we will split on it
