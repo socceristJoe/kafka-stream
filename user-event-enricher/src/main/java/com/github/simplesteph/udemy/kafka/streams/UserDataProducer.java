@@ -44,7 +44,7 @@ public class UserDataProducer {
 
         Thread.sleep(10000);
 
-        // 2 - we receive user purchase, but it doesn't exist in Kafka
+        // 2 - we receive user purchase, but the user doesn't exist in Kafka
         System.out.println("\nExample 2 - non existing user\n");
         producer.send(purchaseRecord("bob", "Kafka Udemy Course (2)")).get();
 
@@ -57,8 +57,8 @@ public class UserDataProducer {
 
         Thread.sleep(10000);
 
-        // 4 - we send a user purchase for stephane, but it exists in Kafka later
-        System.out.println("\nExample 4 - non existing user then user\n");
+        // 4 - we send a user purchase for stephane, but create this user in Kafka later
+        System.out.println("\nExample 4 - non existing user then create user\n");
         producer.send(purchaseRecord("stephane", "Computer (4)")).get();
         producer.send(userRecord("stephane", "First=Stephane,Last=Maarek,GitHub=simplesteph")).get();
         producer.send(purchaseRecord("stephane", "Books (4)")).get();
@@ -66,8 +66,8 @@ public class UserDataProducer {
 
         Thread.sleep(10000);
 
-        // 5 - we create a user, but it gets deleted before any purchase comes through
-        System.out.println("\nExample 5 - user then delete then data\n");
+        // 5 - we create a user, but she was deleted before any purchase comes through
+        System.out.println("\nExample 5 - create user then delete then user before adding info\n");
         producer.send(userRecord("alice", "First=Alice")).get();
         producer.send(userRecord("alice", null)).get(); // that's the delete record
         producer.send(purchaseRecord("alice", "Apache Kafka Series (5)")).get();

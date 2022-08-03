@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /Users/joeqiao/Documents/LocalHub/kafka/kafka_2.13-2.8.1
 
 # create input topic for user purchases
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic user-purchases
