@@ -79,7 +79,7 @@ public class WordCountAppTest {
 
     @Test
     public void makeSureWordsBecomeLowercase(){
-        String upperCaseString = "KAFKA kafka Kafka";
+        String upperCaseString = "KAFKA kAfka Kafka";
         pushNewInputRecord(upperCaseString);
         OutputVerifier.compareKeyValue(readOutput(), "kafka", 1L);
         OutputVerifier.compareKeyValue(readOutput(), "kafka", 2L);
